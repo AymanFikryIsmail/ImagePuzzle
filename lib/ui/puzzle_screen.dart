@@ -60,8 +60,9 @@ class _MyPuzzleScreenState extends State<MyPuzzleScreen>
       onAccept: (fromChange) {
         int changeFromIndex = ImageListData.indexOf(fromChange);
 
-        ImageListData[index] = fromChange;
-        ImageListData[changeFromIndex] = ImageListData[index];
+        var temp=ImageListData[index];
+        ImageListData[index] = ImageListData[changeFromIndex];
+        ImageListData[changeFromIndex] = temp;
         bloc.moveImage(ImageListData);
 
         var changerdListChangeToValue = changedImageListData[index];
